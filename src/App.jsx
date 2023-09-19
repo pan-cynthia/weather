@@ -1,6 +1,7 @@
 import Bookmarks from './components/Bookmarks.jsx'
 import Search from './components/Search.jsx'
 import DateTime from './components/DateTime.jsx'
+import Details from './components/Details.jsx'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Bookmarks/>
       <Search/>
       <DateTime/>
+      <Details/>
     </div>
   )
 }
