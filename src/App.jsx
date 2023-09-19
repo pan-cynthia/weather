@@ -2,6 +2,7 @@ import Bookmarks from './components/Bookmarks.jsx'
 import Search from './components/Search.jsx'
 import DateTime from './components/DateTime.jsx'
 import Details from './components/Details.jsx'
+import Forecast from './components/Forecast.jsx'
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <Search/>
       <DateTime/>
       <Details/>
+      <Forecast title='Hourly Forecast'/>
+      <Forecast title='Daily Forecast'/>
     </div>
   )
 }
