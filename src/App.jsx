@@ -5,7 +5,7 @@ import Forecast from './components/Forecast.jsx'
 
 function App() {
   return (
-    <div className='mx-auto max-w-screen-md mt-5 px-32 py-5 rounded-lg bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400'>
+    <div className='mx-auto max-w-screen-lg m-5 px-32 py-5 rounded-lg bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400'>
       <Search/>
       <DateTime/>
       <Details/>
