@@ -3,7 +3,7 @@ import { UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSun, Uil
 
 function Conditions() {
   return (
-    <div>
+    <div className='bg-[#0478c9] rounded-lg p-5 m-10'>
       <div className='flex justify-center space-x-2 mb-2 text-white'>
         <div className='flex'>
           <UilArrowUp/>
