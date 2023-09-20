@@ -2,6 +2,7 @@ import Search from './components/Search.jsx'
 import DateTime from './components/DateTime.jsx'
 import Details from './components/Details.jsx'
 import Forecast from './components/Forecast.jsx'
+import Conditions from './Conditions.jsx'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Details/>
         <Forecast title='Hourly Forecast' icon='UilClock'/>
         <Forecast title='Daily Forecast' icon='UilCalender'/>
+        <Conditions/>
       </div>
     </div>
   )
