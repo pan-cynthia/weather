@@ -7,7 +7,7 @@ function Forecast({title}) {
         <p className='text-white font-medium uppercase'>{title}</p>
         <hr className='my-2'/>
       </div>
-      <div className='flex justify-between text-white'>
+      <div className='grid grid-cols-5 divide-x text-white'>
         <div className='flex flex-col items-center'>
           <p>02:00pm</p>
           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" className='w-12 my-1'/>
