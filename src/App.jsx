@@ -5,13 +5,13 @@ import Forecast from './components/Forecast.jsx'
 
 function App() {
   return (
-    <div className='mx-auto m-5 max-w-screen-lg rounded-lg bg-gradient-to-br from-[#2f99e5] to-[#3172af] h-screen shadow-xl shadow-gray-400'>
+    <div className='mx-auto m-5 max-w-screen-lg rounded-lg bg-gradient-to-br from-[#2f99e5] to-[#3172af] h-fit shadow-xl shadow-gray-400'>
       <DateTime/>
       <div className='px-32 pb-5'>
         <Search/>
         <Details/>
-        <Forecast title='Hourly Forecast'/>
-        <Forecast title='Daily Forecast'/>
+        <Forecast title='Hourly Forecast' icon='UilClock'/>
+        <Forecast title='Daily Forecast' icon='UilCalender'/>
       </div>
     </div>
   )
