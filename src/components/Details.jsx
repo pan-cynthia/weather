@@ -22,12 +22,12 @@ function Details() {
         <p>|</p>
         <div className='flex'>
           <UilSun/>
-          <p className='ml-1'>Sunrise: 06:54am</p>
+          <p className='ml-1'>Sunrise: 06:54 AM</p>
         </div>
         <p>|</p>
         <div className='flex'>
           <UilSunset/>
-          <p className='ml-1'>Sunset: 7:13pm</p>
+          <p className='ml-1'>Sunset: 7:13 PM</p>
         </div>
       </div>
       <div className='flex justify-center space-x-2 text-white'>
@@ -43,7 +43,7 @@ function Details() {
         <p>|</p>
         <div className='flex'>
           <UilWind/>
-          <p className='ml-1'>Wind: 12mph</p>
+          <p className='ml-1'>Wind: 12 mph</p>
         </div>
       </div>
     </div>

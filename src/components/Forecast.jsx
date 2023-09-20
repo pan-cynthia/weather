@@ -9,27 +9,27 @@ function Forecast({title}) {
       </div>
       <div className='grid grid-cols-5 divide-x text-white'>
         <div className='flex flex-col items-center'>
-          <p>02:00pm</p>
+          <p>02:00 PM</p>
           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" className='w-12 my-1'/>
           <p>60°</p>
         </div>
         <div className='flex flex-col items-center'>
-          <p>03:00pm</p>
+          <p>03:00 PM</p>
           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" className='w-12 my-1'/>
           <p>60°</p>
         </div>
         <div className='flex flex-col items-center'>
-          <p>04:00pm</p>
+          <p>04:00 PM</p>
           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" className='w-12 my-1'/>
           <p>60°</p>
         </div>
         <div className='flex flex-col items-center'>
-          <p>05:00pm</p>
+          <p>05:00 PM</p>
           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" className='w-12 my-1'/>
           <p>60°</p>
         </div>
         <div className='flex flex-col items-center'>
-          <p>06:00pm</p>
+          <p>06:00 PM</p>
           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" className='w-12 my-1'/>
           <p>60°</p>
         </div>
