@@ -32,17 +32,10 @@ function Conditions() {
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
-            <UilSun size={20}/>
-            <p>Sunrise</p>
+            <UilSun size={18}/>
+            <p>UV Index</p>
           </div>
-          <p className='text-xl'>06:54 AM</p>
-        </div>
-        <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
-          <div className='flex items-center'>
-            <UilSunset size={20}/>
-            <p>Sunset</p>
-          </div>
-          <p className='text-xl'>07:13 PM</p>
+          <p className='text-xl'>6</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
@@ -60,10 +53,17 @@ function Conditions() {
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
-            <UilSun size={18}/>
-            <p>UV Index</p>
+            <UilSun size={20}/>
+            <p>Sunrise</p>
           </div>
-          <p className='text-xl'>6</p>
+          <p className='text-lg'>06:54 AM</p>
+        </div>
+        <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
+          <div className='flex items-center'>
+            <UilSunset size={20}/>
+            <p>Sunset</p>
+          </div>
+          <p className='text-lg'>07:13 PM</p>
         </div>
       </div>
     </div>
