@@ -6,7 +6,7 @@ import Conditions from './components/Conditions.jsx'
 
 function App() {
   return (
-    <div className='mx-auto max-w-screen-full bg-gradient-to-br from-[#2f99e5] to-[#3172af] h-screen'>
+    <div className='mx-auto max-w-screen-full h-screen bg-gradient-to-br from-[#55a6cd] to-[#1689bb]'>
       <div className='flex justify-between items-center p-5'>
         <DateTime/>
         <Search/>

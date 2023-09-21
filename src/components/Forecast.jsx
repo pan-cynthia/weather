@@ -3,7 +3,7 @@ import { UilClock, UilCalender } from '@iconscout/react-unicons'
 
 function Forecast({title, icon}) {
   return (
-    <div className='bg-[#0478c9] rounded-lg p-5 w-full'>
+    <div className='bg-[#007cbc]/70 rounded-lg p-5 w-full'>
       <div className='flex items-center mb-2 space-x-1.5 text-[#7eb8e0]'>
         {icon === 'UilClock' ? (<UilClock size={18}/>) : (<UilCalender size={18}/>)}
         <p className=' font-medium uppercase'>{title}</p>

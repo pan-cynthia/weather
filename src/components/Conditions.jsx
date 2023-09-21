@@ -3,7 +3,7 @@ import { UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSun, Uil
 
 function Conditions() {
   return (
-    <div className='bg-[#0478c9] rounded-lg p-5 w-2/6'>
+    <div className='bg-[#007cbc]/70 rounded-lg p-5 w-2/6'>
       <div className='flex items-center space-x-1.5 text-[#7eb8e0]'>
         <UilInfoCircle size={18}/>
         <p className='mb-2 font-medium uppercase'>Conditions</p>
