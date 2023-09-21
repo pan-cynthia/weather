@@ -14,21 +14,21 @@ function Conditions() {
             <UilArrowUp size={20}/>
             <p>High</p>
           </div>
-          <p className='text-2xl'>&nbsp;69°</p>
+          <p className='text-xl'>&nbsp;69°</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
             <UilArrowDown size={20}/>
             <p>Low</p>
           </div>
-          <p className='text-2xl'>&nbsp;58°</p>
+          <p className='text-xl'>&nbsp;58°</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
             <UilTemperature size={18}/>
             <p>Feels Like</p>
           </div>
-          <p className='text-2xl'>&nbsp;66°</p>
+          <p className='text-xl'>&nbsp;66°</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
@@ -49,21 +49,21 @@ function Conditions() {
             <UilTear size={18}/>
             <p>Humidity</p>
           </div>
-          <p className='text-2xl'>75%</p>
+          <p className='text-xl'>75%</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
             <UilWind size={18}/>
             <p>Wind</p>
           </div>
-          <p className='text-2xl'>12 mph</p>
+          <p className='text-xl'>12 mph</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>
-            <UilWind size={18}/>
+            <UilSun size={18}/>
             <p>UV Index</p>
           </div>
-          <p className='text-2xl'>6</p>
+          <p className='text-xl'>6</p>
         </div>
       </div>
     </div>
