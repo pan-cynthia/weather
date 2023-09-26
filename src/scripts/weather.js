@@ -1,13 +1,14 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://api.openweathermap.org/data/3.0'
+const BASE_URL = 'https://api.open-meteo.com/v1/forecast'
 
-const getWeatherData = (infoType, searchParams) => {
-  const url = new URL(BASE_URL + '/' + infoType)
-  url.search = new URLSearchParams({...searchParams, appid:import.meta.env.VITE_OPENWEATHER_API_KEY})
-  console.log(url.search)
+const getWeatherData = (searchParams) => {
+  const url = new URL(BASE_URL)
+  url.search = new URLSearchParams({...searchParams})
+  console.log(url.search)  // print out query parameters
+
   return axios.get(url)
-    .then((res) => res.data)
+    .then(res => res.data)
 }
 
 export default getWeatherData
