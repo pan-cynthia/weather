@@ -3,8 +3,16 @@ import DateTime from './components/DateTime.jsx'
 import Details from './components/Details.jsx'
 import Forecast from './components/Forecast.jsx'
 import Conditions from './components/Conditions.jsx'
+import getFormattedWeatherData from './scripts/weather.js'
 
 function App() {
+  const fetchWeather = async () => {
+    const data = await getFormattedWeatherData({name: 'San Francisco'})
+    console.log(data)
+  }
+
+  fetchWeather();
+
   return (
     <div className='mx-auto max-w-screen-full h-screen bg-gradient-to-br from-[#55a6cd] to-[#1689bb]'>
       <div className='flex justify-between items-center p-5'>
