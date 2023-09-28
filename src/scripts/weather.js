@@ -37,8 +37,8 @@ const formatWeatherData = (data) => {
   temperature_2m = data.hourly.temperature_2m.slice(1, 6)
   relativehumidity_2m = data.hourly.relativehumidity_2m[0]  
   apparent_temperature = data.hourly.apparent_temperature[0]
-  temperature_2m_max = data.daily.temperature_2m_max.slice(1, 6)
-  temperature_2m_min = data.daily.temperature_2m_min.slice(1, 6)
+  temperature_2m_max = data.daily.temperature_2m_max.slice(0, 6)
+  temperature_2m_min = data.daily.temperature_2m_min.slice(0, 6)
   sunrise = formatToLocalTime(data.daily.sunrise[0], 'hh:mm a')
   sunset = formatToLocalTime(data.daily.sunset[0], 'hh:mm a')
   uv_index_max = data.daily.uv_index_max[0]
@@ -58,7 +58,8 @@ const getFormattedWeatherData = async (cityName) => {
     daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max'],
     current_weather: true,
     timezone: 'auto',
-    temperature_unit: 'fahrenheit'
+    temperature_unit: 'fahrenheit',
+    windspeed_unit: 'mph'
   }).then(formatWeatherData)
 
   return {weatherData, name}
