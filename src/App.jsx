@@ -21,22 +21,22 @@ function App() {
 
   return (
     <div className='mx-auto max-w-screen-full h-screen bg-gradient-to-br from-[#55a6cd] to-[#1689bb]'>
-      <div className='flex justify-between items-center p-5'>
-        <DateTime/>
-        <Search/>
-      </div>
       {weather && (
-        <div>
-          <Details weather={weather}/>
-          <div className='mx-auto mt-10 flex justify-between w-2/3 space-x-5'>
-            <div className='w-4/5 flex flex-col justify-between'>
-              <Forecast title='Hourly Forecast' icon='UilClock'/>
-              <Forecast title='Daily Forecast' icon='UilCalender'/>
-            </div>
-            <Conditions weather={weather}/>
-          </div>
+      <div>
+        <div className='flex justify-between items-center p-5'>
+          <DateTime weather={weather}/>
+          <Search/>
         </div>
-      )}
+        <Details weather={weather}/>
+        <div className='mx-auto mt-10 flex justify-between w-2/3 space-x-5'>
+          <div className='w-4/5 flex flex-col justify-between'>
+            <Forecast title='Hourly Forecast' icon='UilClock'/>
+            <Forecast title='Daily Forecast' icon='UilCalender'/>
+          </div>
+          <Conditions weather={weather}/>
+        </div>
+      </div>
+      )} 
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { DateTime } from 'luxon'
 
 const getCoordinates = (cityName) => {
   const geo_url = new URL('https://geocoding-api.open-meteo.com/v1/search')
@@ -38,9 +39,10 @@ const formatWeatherData = (data) => {
   apparent_temperature = data.hourly.apparent_temperature[0]
   temperature_2m_max = data.daily.temperature_2m_max.slice(1, 6)
   temperature_2m_min = data.daily.temperature_2m_min.slice(1, 6)
-  sunrise = data.daily.sunrise[0]
-  sunset = data.daily.sunset[0]
+  sunrise = formatToLocalTime(data.daily.sunrise[0], 'hh:mm a')
+  sunset = formatToLocalTime(data.daily.sunset[0], 'hh:mm a')
   uv_index_max = data.daily.uv_index_max[0]
+  time = formatToLocalTime(time)
 
   return {time, temperature, weathercode, temperature_2m, temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}
 }
@@ -55,10 +57,15 @@ const getFormattedWeatherData = async (cityName) => {
     hourly: ['temperature_2m', 'relativehumidity_2m', 'apparent_temperature', 'windspeed_10m'],
     daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max'],
     current_weather: true,
+    timezone: 'auto',
     temperature_unit: 'fahrenheit'
   }).then(formatWeatherData)
 
   return {weatherData, name}
+}
+
+const formatToLocalTime = (time, format = 'hh:mm a ccc, LLL dd') => {
+  return DateTime.fromISO(time).toFormat(format)
 }
 
 export default getFormattedWeatherData
