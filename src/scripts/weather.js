@@ -47,7 +47,7 @@ const formatWeatherData = (data) => {
 
 const getFormattedWeatherData = async (cityName) => {
   const coordinates = await getCoordinates(cityName).then(formatCoordinates)
-  const {latitude, longitude} = coordinates
+  const {latitude, longitude, name} = coordinates
 
   const weatherData = await getWeatherData({
     latitude: latitude,
@@ -58,7 +58,7 @@ const getFormattedWeatherData = async (cityName) => {
     temperature_unit: 'fahrenheit'
   }).then(formatWeatherData)
 
-  return weatherData
+  return {weatherData, name}
 }
 
 export default getFormattedWeatherData
