@@ -33,7 +33,7 @@ function App() {
               <Forecast title='Hourly Forecast' icon='UilClock'/>
               <Forecast title='Daily Forecast' icon='UilCalender'/>
             </div>
-            <Conditions/>
+            <Conditions weather={weather}/>
           </div>
         </div>
       )}
