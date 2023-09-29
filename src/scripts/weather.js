@@ -28,13 +28,12 @@ const getWeatherData = (searchParams) => {
 
 const formatWeatherData = (data) => {
   let {
-    hourly: {time: time_h,temperature_2m, relativehumidity_2m, apparent_temperature},
+    hourly: {time: time_h, temperature_2m, relativehumidity_2m, apparent_temperature},
     daily: {time: time_d, temperature_2m_max, temperature_2m_min, sunrise, sunset, uv_index_max},
     current_weather: {time, temperature, weathercode, windspeed}
   } = data
 
   // only get forecast data for current day only + next 5 days
-  temperature_2m = data.hourly.temperature_2m.slice(1, 6)
   relativehumidity_2m = data.hourly.relativehumidity_2m[0]  
   apparent_temperature = data.hourly.apparent_temperature[0]
   temperature_2m_max = data.daily.temperature_2m_max.slice(0, 6)
@@ -42,9 +41,15 @@ const formatWeatherData = (data) => {
   sunrise = formatToLocalTime(data.daily.sunrise[0], 'hh:mm a')
   sunset = formatToLocalTime(data.daily.sunset[0], 'hh:mm a')
   uv_index_max = data.daily.uv_index_max[0]
-  time = formatToLocalTime(time)
 
-  time_h = time_h.slice(1, 6).map(h => {
+  time = formatToLocalTime(time)
+  let hour = parseInt(time.slice(0, 2))
+  if (time.slice(6, 8) === 'PM' && hour != 12) {
+    // use 24 hour time to index
+    hour = hour + 12
+  }
+  temperature_2m = data.hourly.temperature_2m.slice(hour + 1, hour + 6)
+  time_h = time_h.slice(hour + 1, hour + 6).map(h => {
     return formatToLocalTime(h, 'hh:mm a')
   })
 
