@@ -71,7 +71,8 @@ const getFormattedWeatherData = async (cityName) => {
     daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max'],
     current_weather: true,
     timezone: 'auto',
-    temperature_unit: 'fahrenheit'
+    temperature_unit: 'fahrenheit',
+    windspeed_unit: 'mph'
   }).then(formatWeatherData)
 
   return {weatherData, name}
