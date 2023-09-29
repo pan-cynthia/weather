@@ -28,8 +28,8 @@ const getWeatherData = (searchParams) => {
 
 const formatWeatherData = (data) => {
   let {
-    hourly: {temperature_2m, relativehumidity_2m, apparent_temperature},
-    daily: {temperature_2m_max, temperature_2m_min, sunrise, sunset, uv_index_max},
+    hourly: {time: time_h,temperature_2m, relativehumidity_2m, apparent_temperature},
+    daily: {time: time_d, temperature_2m_max, temperature_2m_min, sunrise, sunset, uv_index_max},
     current_weather: {time, temperature, weathercode, windspeed}
   } = data
 
@@ -44,22 +44,29 @@ const formatWeatherData = (data) => {
   uv_index_max = data.daily.uv_index_max[0]
   time = formatToLocalTime(time)
 
-  return {time, temperature, weathercode, temperature_2m, temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}
+  time_h = time_h.slice(1, 6).map(h => {
+    return formatToLocalTime(h, 'hh:mm a')
+  })
+
+  time_d = time_d.slice(1, 6).map(d => {
+    return formatToLocalTime(d, 'ccc')
+  })
+  
+  return {time, time_h, time_d, temperature, weathercode, temperature_2m, temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}
 }
 
 const getFormattedWeatherData = async (cityName) => {
   const coordinates = await getCoordinates(cityName).then(formatCoordinates)
   const {latitude, longitude, name} = coordinates
 
-  const weatherData = await getWeatherData({
+  let weatherData = await getWeatherData({
     latitude: latitude,
     longitude: longitude,
     hourly: ['temperature_2m', 'relativehumidity_2m', 'apparent_temperature', 'windspeed_10m'],
     daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max'],
     current_weather: true,
     timezone: 'auto',
-    temperature_unit: 'fahrenheit',
-    windspeed_unit: 'mph'
+    temperature_unit: 'fahrenheit'
   }).then(formatWeatherData)
 
   return {weatherData, name}
