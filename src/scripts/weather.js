@@ -28,8 +28,8 @@ const getWeatherData = (searchParams) => {
 
 const formatWeatherData = (data) => {
   let {
-    hourly: {time: time_h, temperature_2m, relativehumidity_2m, apparent_temperature},
-    daily: {time: time_d, temperature_2m_max, temperature_2m_min, sunrise, sunset, uv_index_max},
+    hourly: {time: time_h, temperature_2m, relativehumidity_2m, apparent_temperature, weathercode: weathercode_h},
+    daily: {time: time_d, temperature_2m_max, temperature_2m_min, sunrise, sunset, uv_index_max, weathercode: weathercode_d},
     current_weather: {time, temperature, weathercode, windspeed}
   } = data
 
@@ -49,15 +49,17 @@ const formatWeatherData = (data) => {
     hour = hour + 12
   }
   temperature_2m = data.hourly.temperature_2m.slice(hour + 1, hour + 6)
+  weathercode_h = weathercode_h.slice(hour + 1, hour + 6)
   time_h = time_h.slice(hour + 1, hour + 6).map(h => {
     return formatToLocalTime(h, 'hh:mm a')
   })
 
+  weathercode_d = weathercode_d.slice(1, 6)
   time_d = time_d.slice(1, 6).map(d => {
     return formatToLocalTime(d, 'ccc')
   })
   
-  return {time, time_h, time_d, temperature, weathercode, temperature_2m, temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}
+  return {time, time_h, time_d, temperature, weathercode, weathercode_h, weathercode_d, temperature_2m, temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}
 }
 
 const getFormattedWeatherData = async (cityName) => {
@@ -67,8 +69,8 @@ const getFormattedWeatherData = async (cityName) => {
   let weatherData = await getWeatherData({
     latitude: latitude,
     longitude: longitude,
-    hourly: ['temperature_2m', 'relativehumidity_2m', 'apparent_temperature', 'windspeed_10m'],
-    daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max'],
+    hourly: ['temperature_2m', 'relativehumidity_2m', 'apparent_temperature', 'windspeed_10m', 'weathercode'],
+    daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max', 'weathercode'],
     current_weather: true,
     timezone: 'auto',
     temperature_unit: 'fahrenheit',
@@ -82,4 +84,7 @@ const formatToLocalTime = (time, format = 'hh:mm a ccc, LLL dd') => {
   return DateTime.fromISO(time).toFormat(format)
 }
 
+const getIcon = (weathercode) => `http://openweathermap.org/img/wn/${weathercode}@2x.png`
+
 export default getFormattedWeatherData
+export { getIcon }
