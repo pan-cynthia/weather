@@ -1,7 +1,7 @@
 import React from 'react'
 import { UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSun, UilSunset, UilInfoCircle } from '@iconscout/react-unicons'
 
-function Conditions({weather: {weatherData: {temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}}}) {
+function Conditions({units, weather: {weatherData: {temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}}}) {
   return (
     <div className='bg-[#007cbc]/70 rounded-lg p-5 w-2/6'>
       <div className='flex items-center space-x-1.5 text-[#7eb8e0]'>
@@ -49,7 +49,7 @@ function Conditions({weather: {weatherData: {temperature_2m_max, temperature_2m_
             <UilWind size={18}/>
             <p>Wind</p>
           </div>
-          <p className='text-xl'>{windspeed.toFixed()} mph</p>
+          <p className='text-xl'>{windspeed.toFixed()} {units.windspeed_unit === 'kmh' ? 'km/h' : 'mph'}</p>
         </div>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
           <div className='flex items-center'>

@@ -62,7 +62,7 @@ const formatWeatherData = (data) => {
   return {time, time_h, time_d, temperature, weathercode, weathercode_h, weathercode_d, temperature_2m, temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}
 }
 
-const getFormattedWeatherData = async (cityName) => {
+const getFormattedWeatherData = async (cityName, units) => {
   const coordinates = await getCoordinates(cityName).then(formatCoordinates)
   const {latitude, longitude, name} = coordinates
 
@@ -73,8 +73,8 @@ const getFormattedWeatherData = async (cityName) => {
     daily: ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'uv_index_max', 'weathercode'],
     current_weather: true,
     timezone: 'auto',
-    temperature_unit: 'fahrenheit',
-    windspeed_unit: 'mph'
+    temperature_unit: units.temperature_unit,
+    windspeed_unit: units.windspeed_unit
   }).then(formatWeatherData)
 
   return {weatherData, name}
