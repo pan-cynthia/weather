@@ -22,11 +22,11 @@ function App() {
 
   return (
     <div className='mx-auto max-w-screen-full h-screen bg-gradient-to-br from-[#55a6cd] to-[#1689bb]'>
-      {weather && (
+      {weather && ( 
       <div>
         <div className='flex justify-between items-center p-5'>
           <DateTime weather={weather}/>
-          <Search units={units} setUnits={setUnits}/>
+          <Search units={units} setUnits={setUnits} setCityName={setCityName}/>
         </div>
         <Details weather={weather}/>
         <div className='mx-auto mt-10 flex justify-between w-2/3 space-x-5'>
