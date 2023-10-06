@@ -4,9 +4,9 @@ import { UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSun, Uil
 function Conditions({units, weather: {weatherData: {temperature_2m_max, temperature_2m_min, apparent_temperature, uv_index_max, relativehumidity_2m, windspeed, sunrise, sunset}}}) {
   return (
     <div className='bg-[#007cbc]/70 rounded-lg p-5 w-2/6'>
-      <div className='flex items-center space-x-1.5 text-[#7eb8e0]'>
+      <div className='flex items-center space-x-1.5 text-[#7eb8e0] mb-2'>
         <UilInfoCircle size={18}/>
-        <p className='mb-2 font-medium uppercase'>Conditions</p>
+        <p className='font-medium uppercase'>Conditions</p>
       </div>
       <div className='grid grid-cols-2 gap-5 text-white'>
         <div className='bg-[#7eb8e0]/30 rounded-xl flex flex-col items-center justify-center py-2'>
